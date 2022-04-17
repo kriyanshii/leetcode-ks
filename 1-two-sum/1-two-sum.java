@@ -4,8 +4,7 @@ class Solution {
         for(int i=0; i<nums.length;i++){
             int diff = target - nums[i];
             if(hmp.containsKey(diff)){
-                int[] ans = {hmp.get(diff), i};
-                return ans;
+                return new int[] {hmp.get(diff), i};
             }
             hmp.put(nums[i],i);
         }
