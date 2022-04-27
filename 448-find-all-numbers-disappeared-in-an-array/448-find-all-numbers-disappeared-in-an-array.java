@@ -13,7 +13,7 @@ class Solution {
         }
         List <Integer> res = new ArrayList<Integer>();
         for(int j=0; j<arr.length; j++){
-            if(arr[j] - 1 != j){
+            if(arr[j] != j + 1){
                 res.add(j + 1);
             }
         }
