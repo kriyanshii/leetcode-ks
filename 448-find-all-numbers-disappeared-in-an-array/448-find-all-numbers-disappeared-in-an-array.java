@@ -1,10 +1,12 @@
 class Solution {
     public List<Integer> findDisappearedNumbers(int[] arr) {
-        int i = 0;
+        int i = 0, temp;
         while(i < arr.length){
             int correct = arr[i] - 1;
             if(arr[i] != arr[correct]){
-                swap(arr, i, correct);
+                temp=arr[i];
+                arr[i]=arr[correct];
+                arr[correct]=temp;
             }else{
                 i++;
             }
@@ -16,11 +18,5 @@ class Solution {
             }
         }
         return res;
-    }
-    
-    public void swap(int[] arr, int i, int j){
-        int tmp = arr[i];
-        arr[i] = arr[j];
-        arr[j] = tmp;
     }
 }
