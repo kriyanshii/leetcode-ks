@@ -1,27 +1,27 @@
 class Solution {
-    public int firstMissingPositive(int[] nums) {
-        int i = 0;
-        while(i < nums.length){
-            int correct = nums[i] - 1;
-            System.out.println(correct);
-            if(nums[i] > 0 && nums[i]<=nums.length && nums[i] != nums[correct]){
-                //nums[i] > 0 && nums[i] <= nums.length && nums[i] != nums[correct]
-                swap(nums, i, correct);
+    public int firstMissingPositive(int[] arr) {
+        int i=0; 
+        while(i < arr.length){
+            // correct is the index where the ith element should actually be
+            int correct = arr[i] - 1;
+            if(arr[i]>0 && arr[i]<=arr.length && arr[i]!=arr[correct]){ /* First condition: Ignoring the negatives Second condition: If element=length of the array, just ignore it and move ahead */
+                swap(arr,i,correct); // swap if not at the correct position
             }else{
-                i++;
+                i++; // else move ahead
             }
         }
-        for(int index = 0; index<nums.length; index++){
-            if(nums[index] != index+1){
-                return index+1;
+        for(int index=0; index<arr.length; index++){
+            if(arr[index] != index + 1){
+                return index + 1;
             }
         }
-        return nums.length + 1;
+        return arr.length + 1;
     }
+
     
-    public void swap(int[] nums, int i, int j){
-        int tmp = nums[i];
-        nums[i] = nums[j];
-        nums[j] = tmp;
+    static void swap(int[] arr, int i, int j){
+        int tmp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = tmp;
     }
 }
