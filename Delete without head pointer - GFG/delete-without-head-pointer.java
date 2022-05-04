@@ -114,7 +114,7 @@ class Solution
          Node temp = del.next;
         del.data = temp.data;
         del.next = temp.next;
-        temp = null;
+        // temp = null;
     }
 }
 
