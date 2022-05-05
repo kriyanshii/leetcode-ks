@@ -4,14 +4,14 @@ class Solution {
     }
     
     public String build(String S){
-        Stack<Character> ans = new Stack();
+        Stack<Character> s = new Stack<>();
         for(char c: S.toCharArray()){
             if(c != '#'){
-                ans.push(c);
-            }else if(!ans.empty()){
-                ans.pop();
+                s.push(c);
+            }else if(!s.empty()){
+                s.pop();
             }
         }
-        return String.valueOf(ans);
+        return String.valueOf(s);
     }
 }
