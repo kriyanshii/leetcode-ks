@@ -1,1 +1,1 @@
-​
+https://leetcode.com/problems/minimum-lines-to-represent-a-line-chart/discuss/2061888/Java-O(NLogN)-Maths-Slope
