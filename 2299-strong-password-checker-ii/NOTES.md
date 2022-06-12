@@ -1,0 +1,1 @@
+https://leetcode.com/problems/strong-password-checker-ii/discuss/2138969/JavaPython-3-Use-HashSet-to-count-conditions-w-brief-explanation-and-analysis.
