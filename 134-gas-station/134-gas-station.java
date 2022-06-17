@@ -4,11 +4,13 @@ class Solution {
         for(int i: gas){
             gasSum += i;
         }
-        for(int i : cost){
+        for(int i: cost){
             costSum += i;
         }
-        if(gasSum < costSum) return -1;
-        for(int i=0; i<cost.length; i++){
+        if(gasSum < costSum){
+            return -1;
+        }
+        for(int i = 0; i < gas.length; i++){
             total += gas[i] - cost[i];
             if(total < 0){
                 total = 0;
