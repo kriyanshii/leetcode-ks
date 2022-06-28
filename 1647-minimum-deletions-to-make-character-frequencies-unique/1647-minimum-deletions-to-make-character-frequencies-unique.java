@@ -7,9 +7,12 @@ class Solution {
         }
         Set<Integer> set = new HashSet<>();
         for(int i = 0; i < 26; i++){
-            while(freq[i] > 0 && !set.add(freq[i])){
-                --freq[i];
-                count++;
+            if(freq[i] != 0) {
+                while(set.contains(freq[i]) && freq[i]>0) {
+                    freq[i]--;
+                    count++;
+                }
+                set.add(freq[i]);
             }
         }
         return count;
