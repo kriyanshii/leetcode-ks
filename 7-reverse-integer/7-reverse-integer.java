@@ -8,7 +8,7 @@ class Solution {
                 return 0;
             }
             result = newResult;
-            x = x/10;
+            x = x / 10;
         }
         return result;
     }
