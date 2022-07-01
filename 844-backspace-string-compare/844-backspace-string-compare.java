@@ -1,17 +1,17 @@
 class Solution {
     public boolean backspaceCompare(String s, String t) {
-        return build(s).equals(build(t));
+        return build(s).equals((build(t)));
     }
     
-    public String build(String S){
-        Stack<Character> s = new Stack<>();
-        for(char c: S.toCharArray()){
+    public String build(String s){
+        Stack<Character> stack = new Stack<>();
+        for(char c: s.toCharArray()){
             if(c != '#'){
-                s.push(c);
-            }else if(!s.empty()){
-                s.pop();
+                stack.push(c);
+            }else if(!stack.empty()){
+                stack.pop();
             }
         }
-        return String.valueOf(s);
+        return String.valueOf(stack);
     }
 }
