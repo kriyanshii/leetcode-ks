@@ -1,23 +1,12 @@
 class Solution {
     public int lastStoneWeight(int[] stones) {
-        Arrays.sort(stones);
-        int count = stones.length - 1;
-        while(count != 0){
-            if(stones[stones.length - 1] == stones[stones.length - 2]){
-                stones[stones.length - 1] = 0;
-                stones[stones.length - 2] = 0;
-            }else if(stones[stones.length - 1] != stones[stones.length - 2]){
-                stones[stones.length - 1] = stones[stones.length -1] - stones[stones.length - 2];
-                stones[stones.length - 2] = 0;
-            }
-            Arrays.sort(stones);
-            count--;
+        PriorityQueue<Integer> pq = new PriorityQueue<>((a, b)-> b - a);
+        for(int s : stones){
+            pq.offer(s);
         }
-        for(int j: stones){
-            if(j != 0){
-                return j;
-            }
+        while(pq.size() > 1){
+            pq.offer(pq.poll() - pq.poll());
         }
-        return 0;
+        return pq.poll();
     }
 }
