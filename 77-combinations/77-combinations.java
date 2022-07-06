@@ -8,12 +8,13 @@ class Solution {
     public void comb(List<List<Integer>> list, List<Integer> tmp, int start, int n, int k){
         if(k == 0){
             list.add(new ArrayList<>(tmp));
-            return;
+        }else{
+            for(int i = start; i <= n; i++){
+                tmp.add(i);
+                comb(list, tmp, i + 1, n, k - 1);
+                tmp.remove(tmp.size() - 1);
+            }
         }
-        for(int i = start; i <= n; i++){
-            tmp.add(i);
-            comb(list, tmp, i + 1, n, k - 1);
-            tmp.remove(tmp.size() - 1);
-        }
+
     }
 }
