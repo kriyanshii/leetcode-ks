@@ -5,8 +5,8 @@ class Solution {
         for(int i = 0; i < prices.length; i++){
             if(prices[i] < minVal){
                 minVal = prices[i];
-            }else if(prices[i] - minVal > maxProf){
-                maxProf = prices[i] - minVal;
+            }else{
+                maxProf = Math.max(maxProf, prices[i] - minVal);
             }
         }
         return maxProf;
