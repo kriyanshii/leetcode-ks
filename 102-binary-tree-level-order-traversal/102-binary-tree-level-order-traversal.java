@@ -25,7 +25,7 @@ class Solution {
             return;
         }
         if(ans.size() == level){
-            ans.add(new ArrayList<Integer>());
+            ans.add(new ArrayList<>());
         }
         ans.get(level).add(curr.val);
         compute(ans, curr.left, level + 1);
