@@ -1,21 +1,27 @@
 class Solution {
-    public int subarraysWithKDistinct(int[] nums, int k) {
-        return atMostK(nums, k) - atMostK(nums, k - 1);
-    }
-    
-    public int atMostK(int[] A, int k){
-        int i = 0, res = 0;
-        HashMap<Integer, Integer> count = new HashMap<>();
-        for(int j = 0; j < A.length; j++){
-            if(count.getOrDefault(A[j], 0) == 0) k--;
-            count.put(A[j], count.getOrDefault(A[j], 0) + 1);
-            while(k < 0){
-                count.put(A[i], count.get(A[i]) - 1);
-                if(count.get(A[i]) == 0) k++;
-                i++;
+    public int subarraysWithKDistinct(int[] A, int K) {
+        int nvals[] = new int[A.length + 1];
+        int nsub = 1;
+        int l = 0;
+        int r = 0;
+        int totalsub = 0;
+        while (r < A.length) {
+            if (nvals[A[r++]]++ == 0) {
+                K--;
             }
-            res += j - i + 1;
+            if (K < 0) {
+                --nvals[A[l++]];
+                K++;
+                nsub = 1;
+            }
+            if (K == 0) {
+                while (nvals[A[l]] > 1) {
+                    --nvals[A[l++]];
+                    nsub++;
+                }
+                totalsub += nsub;
+            }
         }
-        return res;
+        return totalsub;
     }
 }
