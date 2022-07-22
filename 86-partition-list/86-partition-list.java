@@ -14,8 +14,8 @@ class Solution {
         ListNode before = before_head, after = after_head;
         while(head != null){
             if(head.val < x){
-                before.next = head;
-                before =  before.next;
+                before.next =  head;
+                before = before.next;
             }else{
                 after.next = head;
                 after = after.next;
