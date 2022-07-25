@@ -1,21 +1,26 @@
 class SmallestInfiniteSet {
-    SortedSet<Integer> s = new TreeSet<>();
-
+    int[] arr;
+    int min = 1;
     public SmallestInfiniteSet() {
-        for(int i = 1; i < 1001; i++){
-            s.add(i);
-        }
+        arr = new int[1001];
     }
     
     public int popSmallest() {
-        int k = s.first();
-        s.remove(k);
-        return k;
+        int j = min;
+        for(int i=min+1; i<1001; i++){
+            if(arr[i] == 0) {
+                min = i;
+                break;
+            }
+        }
+        arr[j] = -1;
+        return j;
     }
     
     public void addBack(int num) {
-        s.add(num);
-    }
+        if(num<min) min = num;
+            arr[num] = 0;
+        }
 }
 
 /**
