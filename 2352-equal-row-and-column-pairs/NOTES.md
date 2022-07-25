@@ -1,0 +1,1 @@
+https://leetcode.com/problems/equal-row-and-column-pairs/discuss/2324649/java-hashmap
