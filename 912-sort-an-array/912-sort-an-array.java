@@ -1,13 +1,23 @@
 class Solution {
     public int[] sortArray(int[] nums) {
-        int len = nums.length;
-        PriorityQueue <Integer> heap = new PriorityQueue<>();
-        for(int i = 0; i < nums.length; i++){
-            heap.add(nums[i]);
+        int max = -50001, min = 50001;
+        for (int num: nums) {
+            max = Math.max(num, max);
+            min = Math.min(num, min);
         }
-        int i = 0;
-        while(!heap.isEmpty()){
-            nums[i++] = heap.poll();
+
+
+        int[] counter = new int[max - min + 1];
+        for (int num: nums) {
+            counter[num - min]++;
+        }
+
+        int idx = 0;
+        for (int num = min; num <= max; num++) {
+            int cnt = counter[num - min];
+            while (cnt-- > 0) {
+                nums[idx++] = num;
+            }
         }
         return nums;
     }
