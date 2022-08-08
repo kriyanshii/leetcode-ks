@@ -5,7 +5,7 @@ class Solution {
         for(int x: nums){
             int i = 0, j = size;
             while(i != j){
-                int mid = (i + j) / 2;
+                int mid = (i + j)/2;
                 if(tails[mid] < x){
                     i = mid + 1;
                 }else{
