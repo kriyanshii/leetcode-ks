@@ -24,8 +24,7 @@ class Solution {
         if(low > high){
             return null;
         }
-        
-        int mid = (high + low) / 2;
+        int mid = (low + high)/2;
         TreeNode node = new TreeNode(nums[mid]);
         node.left = arrayToBST(nums, low, mid - 1);
         node.right = arrayToBST(nums, mid + 1, high);
