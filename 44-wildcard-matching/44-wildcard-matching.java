@@ -1,26 +1,33 @@
 class Solution {
     public boolean isMatch(String s, String p) {
-        boolean[][] match = new boolean[s.length() + 1][p.length() + 1];
-        match[s.length()][p.length()] = true;
-        for(int i = p.length() - 1; i >= 0; i--){
-            if(p.charAt(i) != '*'){
-                break;
-            }else{
-                match[s.length()][i] = true;
+        int m = s.length();
+        int n = p.length();
+        
+        int i = 0, j = 0;
+        int lastStarS = -1, lastStarP = -1;
+        
+        while (i < m) {
+            if (j < n && (s.charAt(i) == p.charAt(j) || p.charAt(j) == '?')) {
+                i++;
+                j++;
+            } else if (j < n && p.charAt(j) == '*') {
+                lastStarS = i;
+                lastStarP = j;
+                j++;
+            } else if (lastStarP != -1) {
+                i = lastStarS + 1;
+                j = lastStarP + 1;
+                lastStarS = i;
+            } else {
+                return false;
             }
         }
         
-        for(int i = s.length() - 1; i >= 0; i--){
-            for(int j = p.length() - 1; j >= 0; j--){
-                if(s.charAt(i) == p.charAt(j) || p.charAt(j) == '?'){
-                    match[i][j] = match[i + 1][j + 1];
-                }else if(p.charAt(j) == '*'){
-                    match[i][j] = match[i + 1][j] || match[i][j + 1];
-                }else{
-                    match[i][j] = false;
-                }
-            }
+        for (int u = j; u < n; u++) {
+            if (p.charAt(u) != '*')
+                return false;
         }
-        return match[0][0];
+        
+        return true;
     }
 }
