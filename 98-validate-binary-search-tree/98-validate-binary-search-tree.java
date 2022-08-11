@@ -16,17 +16,16 @@
 class Solution {
     public boolean isValidBST(TreeNode root) {
         if(root == null) return true;
-        ArrayList<Integer> list = new ArrayList<>();
         Stack<TreeNode> stack = new Stack<>();
-        TreeNode pre = null;
+        TreeNode prev = null;
         while(root != null || !stack.isEmpty()){
             while(root != null){
                 stack.push(root);
                 root = root.left;
             }
             root = stack.pop();
-            if(pre != null && root.val <= pre. val) return false;
-            pre = root;
+            if(prev != null && root.val <= prev.val) return false;
+            prev = root;
             root = root.right;
         }
         return true;
