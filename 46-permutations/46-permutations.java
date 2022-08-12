@@ -6,15 +6,15 @@ class Solution {
         return list;
     }
     
-    public void backtrack(List<List<Integer>> list, List<Integer> tmpList, int[] nums){
-        if(tmpList.size() == nums.length){
-            list.add(new ArrayList<>(tmpList));
+    public void backtrack(List<List<Integer>> list, List<Integer> tmp, int[] nums){
+        if(tmp.size() == nums.length){
+            list.add(new ArrayList<>(tmp));
         }else{
             for(int i = 0; i < nums.length; i++){
-                if(tmpList.contains(nums[i])) continue;
-                tmpList.add(nums[i]);
-                backtrack(list, tmpList, nums);
-                tmpList.remove(tmpList.size() - 1);
+                if(tmp.contains(nums[i])) continue;
+                tmp.add(nums[i]);
+                backtrack(list, tmp, nums);
+                tmp.remove(tmp.size() - 1);
             }
         }
     }
