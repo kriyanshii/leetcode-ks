@@ -20,15 +20,13 @@ class Solution {
         return ans;
     }
     
-    public void compute(List<List<Integer>> ans, TreeNode curr, int level){
-        if(curr == null){
-            return;
-        }
-        if(ans.size() == level){
-            ans.add(new ArrayList<>());
-        }
-        ans.get(level).add(curr.val);
-        compute(ans, curr.left, level + 1);
-        compute(ans, curr.right, level + 1);
+    public void compute(List<List<Integer>> ans, TreeNode root, int level){
+        if(root == null) return;
+        
+        if(ans.size() == level) ans.add(new ArrayList<>());
+        
+        ans.get(level).add(root.val);
+        compute(ans, root.left, level + 1);
+        compute(ans, root.right, level + 1);
     }
 }
