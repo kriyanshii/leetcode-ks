@@ -28,7 +28,7 @@ class Solution {
         }
         
         if(root.left == null && root.right == null){
-            return set.size() <= 1 ? 1 : 0;
+            return set.size() > 1 ? 0 : 1;
         }
         
         int left = helper(root.left, new HashSet<>(set));
