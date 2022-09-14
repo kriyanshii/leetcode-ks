@@ -14,26 +14,28 @@
  * }
  */
 class Solution {
-    public int pseudoPalindromicPaths (TreeNode root) {
-        return helper(root, new HashSet<>());
+  int res = 0;
+  public int pseudoPalindromicPaths (TreeNode root) {
+    if (root == null)
+      return res;
+    compute(root,0);
+    return res;
+  }
+
+  public void compute(TreeNode root,int mask) {
+    if (root == null)
+      return;
+
+    mask ^= 1 << root.val;
+
+    if (root.left == null && root.right == null) {
+      if (mask == 0 || (mask&(mask-1)) == 0)
+        res += 1;
+      return;
     }
-    
-    public int helper(TreeNode root, HashSet<Integer> set){
-        if(root == null) return 0;
-        
-        if(set.contains(root.val)){
-            set.remove(root.val);
-        }else{
-            set.add(root.val);
-        }
-        
-        if(root.left == null && root.right == null){
-            return set.size() > 1 ? 0 : 1;
-        }
-        
-        int left = helper(root.left, new HashSet<>(set));
-        int right = helper(root.right, new HashSet<>(set));
-        
-        return left + right;
-    }
+
+    compute(root.left, mask);
+    compute(root.right, mask);
+
+  }
 }
