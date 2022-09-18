@@ -9,14 +9,14 @@ class Solution {
         int totalWater = 0;
         while(left < right){
             if(height[left] < height[right]){
-                if(height[left] >= maxLeft){
+                if(maxLeft < height[left]){
                     maxLeft = height[left];
                 }else{
                     totalWater += maxLeft - height[left];
                 }
                 left++;
             }else{
-                if(height[right] >= maxRight){
+                if(maxRight < height[right]){
                     maxRight = height[right];
                 }else{
                     totalWater += maxRight - height[right];
