@@ -22,9 +22,7 @@ class Solution {
     
     public void compute(List<List<Integer>> ans, TreeNode root, int level){
         if(root == null) return;
-        
         if(ans.size() == level) ans.add(new ArrayList<>());
-        
         ans.get(level).add(root.val);
         compute(ans, root.left, level + 1);
         compute(ans, root.right, level + 1);
