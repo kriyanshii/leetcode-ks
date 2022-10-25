@@ -1,12 +1,15 @@
 class Solution {
     public boolean arrayStringsAreEqual(String[] word1, String[] word2) {
-        String concat1 = "", concat2 = "";
-        for(String word: word1){
-            concat1 += word;
+        StringBuilder sb1 = new StringBuilder();
+        StringBuilder sb2 = new StringBuilder();
+        for(String s: word1){
+            sb1.append(s);
         }
-        for(String word: word2){
-            concat2 += word;
+        
+        for(String s: word2){
+            sb2.append(s);
         }
-        return concat1.equals(concat2);
+        // System.out.println(sb1 + " " + sb2);
+        return sb1.toString().equals(sb2.toString());
     }
 }
