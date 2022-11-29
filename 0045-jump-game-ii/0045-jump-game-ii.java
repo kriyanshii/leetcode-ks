@@ -7,6 +7,7 @@ class Solution {
             if(curEnd == i){
                 curEnd = curFarthest;
                 jump++;
+                if(curEnd>=nums.length-1)return jump;
             }
         }
         return jump;
