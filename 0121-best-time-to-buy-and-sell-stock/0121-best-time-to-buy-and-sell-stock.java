@@ -5,8 +5,8 @@ class Solution {
         for(int price: prices){
             if(price < minPrice){
                 minPrice = price;
-            }
-            maxProfit = Math.max(maxProfit, price - minPrice);
+            }else
+                maxProfit = Math.max(maxProfit, price - minPrice);
         }
         return maxProfit;
     }
