@@ -9,9 +9,7 @@ class Solution {
         for(int i = 0; i <values.length; i++){
             int tmp = take;
             take = skip + values[i];
-            skip = Math.max(tmp, skip);
-            // skip = skipi;
-            // take = takei;
+            skip = Math.max(skip, tmp);
         }
         return Math.max(take, skip);
     }
