@@ -1,23 +1,23 @@
 class Solution {
     public int getMaxLen(int[] nums) {
-        int firstNeg = -1, zeroPos = -1, sum = 0, max = 0;
+        int firstNeg = -1, zero = -1, negs = 0, res = 0;
         for(int i = 0; i < nums.length; i++){
             if(nums[i] < 0){
-                sum++;
+                negs++;
                 if(firstNeg == -1) firstNeg = i;
-            }
-            if(nums[i] == 0){
-                sum = 0;
+            }if(nums[i] == 0){
+                zero = i;
+                negs = 0;
                 firstNeg = -1;
-                zeroPos = i;
-            }else{
-                if(sum % 2 == 0){
-                    max = Math.max(i - zeroPos, max);
+            }
+            else{
+                if(negs % 2 == 0){
+                    res = Math.max(i - zero, res);
                 }else{
-                    max = Math.max(i -firstNeg, max);
+                    res = Math.max(i - firstNeg, res);
                 }
             }
         }
-        return max;
+        return res;
     }
 }
