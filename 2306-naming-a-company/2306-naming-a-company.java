@@ -11,19 +11,19 @@ class Solution {
         }
         for(int i = 0; i < sets.length; i++){
             for(int j = i + 1; j <sets.length; j++){
-                long countI = 0;
-                long countJ = 0;
-                for (String sI: sets[i]) {
-                    if (!sets[j].contains(sI)) {
-                        countI += 1;
+                long ansI = 0;
+                long ansJ = 0;
+                for(String s: sets[i]){
+                    if(!sets[j].contains(s)){
+                        ansI += 1;
                     }
                 }
-                for (String sJ: sets[j]) {
-                    if (!sets[i].contains(sJ)) {
-                        countJ += 1;
+                for(String s: sets[j]){
+                    if(!sets[i].contains(s)){
+                        ansJ += 1;
                     }
                 }
-                ans += countI * countJ;
+                ans += ansI * ansJ;
             }
         }
         return ans * 2;
