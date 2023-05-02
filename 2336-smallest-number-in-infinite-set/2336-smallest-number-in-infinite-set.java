@@ -7,8 +7,8 @@ class SmallestInfiniteSet {
     
     public int popSmallest() {
         int j = min;
-        for(int i=min+1; i<1001; i++){
-            if(arr[i] == 0) {
+        for(int i = min + 1; i < 1001; i++){
+            if(arr[i] == 0){
                 min = i;
                 break;
             }
@@ -18,9 +18,11 @@ class SmallestInfiniteSet {
     }
     
     public void addBack(int num) {
-        if(num<min) min = num;
-            arr[num] = 0;
+        if(num < min){
+            min = num;
         }
+        arr[num] = 0;
+    }
 }
 
 /**
