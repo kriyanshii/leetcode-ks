@@ -10,18 +10,16 @@
  */
 class Solution {
     public ListNode swapNodes(ListNode head, int k) {
-        ListNode pNode = head;
-        List<ListNode> nodeList = new ArrayList<>();
-        //storing the nodes
-        while(pNode != null){
-            nodeList.add(pNode);
-            pNode = pNode.next;
+        ListNode node = head;
+        ArrayList<ListNode> list = new ArrayList<>();
+        while(node != null){
+            list.add(node);
+            node = node.next;
         }
-        //swapping the values
-        int len = nodeList.size();
-        int tmp = nodeList.get(k-1).val;
-        nodeList.get(k-1).val = nodeList.get(len-k).val;
-        nodeList.get(len-k).val = tmp;
-        return head;
+   int len = list.size();
+    int tmp = list.get(k-1).val;
+    list.get(k-1).val = list.get(len-k).val;
+    list.get(len-k).val = tmp;
+    return head;
     }
 }
