@@ -29,7 +29,7 @@ class Solution {
     
     public ListNode reverse(ListNode head){
         if(head == null) return null;
-        ListNode node = head, prev = null;
+        ListNode prev = null, node = head;
         while(node != null){
             ListNode next = node.next;
             node.next = prev;
@@ -38,4 +38,4 @@ class Solution {
         }
         return prev;
     }
-}
+}  
