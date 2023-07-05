@@ -11,7 +11,6 @@ class Solution {
                 }
                 i++;
             }
-            // no +1 cause we are deleting one 1.
             res = Math.max(res, j - i);
         }
         return res;
