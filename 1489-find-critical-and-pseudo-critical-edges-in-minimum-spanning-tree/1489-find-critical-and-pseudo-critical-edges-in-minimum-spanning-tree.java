@@ -1,6 +1,6 @@
 class UnionFind{
     final int[] parents;
-    int count;
+    int count = 0;
     
     public UnionFind(int n){
         this.parents = new int[n];
@@ -8,7 +8,7 @@ class UnionFind{
     }
     
     public void reset(){
-        for(int i =0;i<parents.length;i++){
+        for(int i = 0; i < parents.length; i++){
             parents[i] = i;
         }
         count = parents.length;
@@ -36,24 +36,21 @@ class UnionFind{
             return false;
         }
     }
-    
 }
 
 class Solution {
     public List<List<Integer>> findCriticalAndPseudoCriticalEdges(int n, int[][] edges) {
-       
-        List<Integer>criticals = new ArrayList<>();
+        List<Integer> criticals = new ArrayList<>();
         List<Integer> pseduos = new ArrayList<>();
-        
         Map<int[], Integer> map = new HashMap<>();
-        for(int i =0;i<edges.length;i++){
+        for(int i = 0; i < edges.length; i++){
             map.put(edges[i], i);
         }
+        Arrays.sort(edges, (e1, e2) -> Integer.compare(e1[2], e2[2]));
         
-        Arrays.sort(edges, (e1, e2)->Integer.compare(e1[2], e2[2]));
         int minCost = buildMST(n, edges, null, null);
         
-        for(int i =0;i<edges.length;i++){
+        for(int i = 0; i < edges.length; i++){
             int[] edge = edges[i];
             int index = map.get(edge);
             int costWithout = buildMST(n, edges, null, edge);
@@ -65,9 +62,7 @@ class Solution {
                     pseduos.add(index);
                 }
             }
-            
         }
-        
         return Arrays.asList(criticals, pseduos);
     }
     
@@ -79,11 +74,11 @@ class Solution {
             cost += pick[2];
         }
         
-        for(int[] edge : edges){
+        for(int[] edge: edges){
             if(edge != skip && uf.union(edge[0], edge[1])){
                 cost += edge[2];
             }
         }
-        return uf.count == 1? cost : Integer.MAX_VALUE;
+        return uf.count == 1 ? cost : Integer.MAX_VALUE;
     }
 }
