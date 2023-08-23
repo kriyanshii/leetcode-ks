@@ -1,0 +1,1 @@
+use array instead hashmap cause it will save memory.
